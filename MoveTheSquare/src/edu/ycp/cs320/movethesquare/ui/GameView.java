@@ -17,7 +17,7 @@ import edu.ycp.cs320.movethesquare.model.Game;
 import edu.ycp.cs320.movethesquare.model.Square;
 
 public class GameView extends JPanel {
-	private static final Color MIDNIGHT_BLUE = new Color(25, 25, 112);
+	private static final Color MIDNIGHT_BLUE = new Color(16, 16, 128);
 	
 	private Game model;
 	private GameController controller;
@@ -28,7 +28,7 @@ public class GameView extends JPanel {
 		setPreferredSize(new Dimension((int) model.getWidth(), (int)model.getHeight()));
 		setBackground(MIDNIGHT_BLUE);
 		
-		this.timer = new Timer(1000 / 30, new ActionListener() {
+		this.timer = new Timer(1000 / 60, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				handleTimerTick();
@@ -73,14 +73,14 @@ public class GameView extends JPanel {
 			@Override
 			public void run() {
 				Game model = new Game();
-				model.setWidth(640.0);
-				model.setHeight(480.0);
+				model.setWidth(1280.0);
+				model.setHeight(1080.0);
 				
 				Square square = new Square();
-				square.setX(300.0);
-				square.setY(220.0);
-				square.setWidth(80.0);
-				square.setHeight(80.0);
+				square.setX(540.0);
+				square.setY(440.0);
+				square.setWidth(120.0);
+				square.setHeight(120.0);
 				model.setSquare(square);
 				
 				GameController controller = new GameController();
@@ -88,7 +88,7 @@ public class GameView extends JPanel {
 				GameView view = new GameView(model);
 				view.setController(controller);
 				
-				JFrame frame = new JFrame("Move the Square!");
+				JFrame frame = new JFrame("Move the Square!!!!");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.add(view);
 				frame.pack();
